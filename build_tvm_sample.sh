@@ -9,4 +9,7 @@ SAMPLE_PATH=${PRJ_PATH}/tvm_sample/
 make clean -C tvm_sample
 
 # build
-go tool compile -D $TVM_WRAPPER_PATH -o $SAMPLE_PATH/tvm_wrapper.a -p tvm_wra
+go tool compile -D $TVM_WRAPPER_PATH -o $SAMPLE_PATH/tvm_wrapper.a -p tvm_wrapper -pack $LIB_ROOT_PATH/TvmWrapper.go
+
+# make
+make -C tvm_sample

@@ -7,4 +7,12 @@ import (
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/plotutil"
-	"gonum.o
+	"gonum.org/v1/plot/vg"
+)
+
+type GraphCreater struct {
+	p      *plot.Plot
+	outDir string
+}
+
+func NewGraphCreate

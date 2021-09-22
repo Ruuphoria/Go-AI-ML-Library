@@ -15,4 +15,14 @@ type GraphCreater struct {
 	outDir string
 }
 
-func NewGraphCreate
+func NewGraphCreater(outputDir string) (*GraphCreater, error) {
+	gc := GraphCreater{}
+	p, err := plot.New()
+	if err != nil {
+		return nil, err
+	}
+	gc.p = p
+
+	// グラフ情報の保存先フォルダの確認（無ければ作成）
+	gc.outDir = outputDir
+	if _, err := o

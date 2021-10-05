@@ -36,4 +36,7 @@ func NewGraphCreater(outputDir string) (*GraphCreater, error) {
 func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsList []GraphPoints) error {
 	gc.p.Title.Text = parameter.Title
 	gc.p.X.Label.Text = parameter.XLabel
-	gc.p.
+	gc.p.Y.Label.Text = parameter.YLabel
+
+	for _, points := range pointsList {
+		if err := p

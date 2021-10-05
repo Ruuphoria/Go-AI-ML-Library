@@ -33,4 +33,7 @@ func NewGraphCreater(outputDir string) (*GraphCreater, error) {
 }
 
 // SaveGraph : 指定した座標情報で直線グラフを作成し、画像で保存する
-func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsL
+func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsList []GraphPoints) error {
+	gc.p.Title.Text = parameter.Title
+	gc.p.X.Label.Text = parameter.XLabel
+	gc.p.

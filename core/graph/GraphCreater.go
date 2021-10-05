@@ -32,4 +32,5 @@ func NewGraphCreater(outputDir string) (*GraphCreater, error) {
 	return &gc, nil
 }
 
-// SaveGraph : 指定した座標
+// SaveGraph : 指定した座標情報で直線グラフを作成し、画像で保存する
+func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsL

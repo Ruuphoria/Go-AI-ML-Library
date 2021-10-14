@@ -44,4 +44,4 @@ func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsList []Gra
 		}
 	}
 
-	
+	err := gc.p.Save(vg.Length(parameter.Width), vg.Length(parameter.Height), gc.createFilePath(param

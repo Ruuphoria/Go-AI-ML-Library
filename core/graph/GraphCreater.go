@@ -39,4 +39,9 @@ func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsList []Gra
 	gc.p.Y.Label.Text = parameter.YLabel
 
 	for _, points := range pointsList {
-		if err := p
+		if err := plotutil.AddLinePoints(gc.p, points.key, points.convertPlotterXYs()); err != nil {
+			return err
+		}
+	}
+
+	

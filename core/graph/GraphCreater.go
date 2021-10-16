@@ -62,4 +62,14 @@ type GraphParameter struct {
 }
 
 func NewGraphParameter() GraphParameter {
-	param := GraphParameter{Width: float64(4 * vg.Inch), Height: float64(4 * vg
+	param := GraphParameter{Width: float64(4 * vg.Inch), Height: float64(4 * vg.Inch)}
+	return param
+}
+
+// Point : 座標（xy座標）
+type Point struct {
+	X float64
+	Y float64
+}
+
+func NewPoi

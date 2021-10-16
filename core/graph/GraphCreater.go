@@ -49,4 +49,8 @@ func (gc *GraphCreater) SaveLineGraph(parameter GraphParameter, pointsList []Gra
 }
 
 func (gc *GraphCreater) createFilePath(parameter GraphParameter) string {
-	return filepath.Join
+	return filepath.Join(gc.outDir, parameter.Title+".png")
+}
+
+// GraphParameter : グラフ表示時の各種パラメーターを指定
+type GraphParameter s

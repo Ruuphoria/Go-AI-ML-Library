@@ -53,4 +53,12 @@ func (gc *GraphCreater) createFilePath(parameter GraphParameter) string {
 }
 
 // GraphParameter : グラフ表示時の各種パラメーターを指定
-type GraphParameter s
+type GraphParameter struct {
+	Title  string
+	XLabel string
+	YLabel string
+	Width  float64
+	Height float64
+}
+
+func NewGraphParamet

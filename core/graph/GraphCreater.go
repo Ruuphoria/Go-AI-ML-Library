@@ -61,4 +61,5 @@ type GraphParameter struct {
 	Height float64
 }
 
-func NewGraphParamet
+func NewGraphParameter() GraphParameter {
+	param := GraphParameter{Width: float64(4 * vg.Inch), Height: float64(4 * vg

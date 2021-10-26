@@ -72,4 +72,10 @@ type Point struct {
 	Y float64
 }
 
-func NewPoi
+func NewPoint(x float64, y float64) Point {
+	p := Point{x, y}
+	return p
+}
+
+// GraphPoints : グラフの座標情報を格納した構造体
+t

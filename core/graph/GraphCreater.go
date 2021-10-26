@@ -84,4 +84,10 @@ type GraphPoints struct {
 }
 
 func NewGraphPoints(key string) GraphPoints {
-	gp := GraphPoin
+	gp := GraphPoints{key: key}
+	points := make([]Point, 0)
+	gp.points = points
+	return gp
+}
+
+func (gp *GraphPoints) AddPoint(p Point)

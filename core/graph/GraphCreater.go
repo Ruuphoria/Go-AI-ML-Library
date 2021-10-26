@@ -78,4 +78,10 @@ func NewPoint(x float64, y float64) Point {
 }
 
 // GraphPoints : グラフの座標情報を格納した構造体
-t
+type GraphPoints struct {
+	points []Point
+	key    string
+}
+
+func NewGraphPoints(key string) GraphPoints {
+	gp := GraphPoin

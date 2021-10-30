@@ -90,4 +90,9 @@ func NewGraphPoints(key string) GraphPoints {
 	return gp
 }
 
-func (gp *GraphPoints) AddPoint(p Point)
+func (gp *GraphPoints) AddPoint(p Point) {
+	gp.points = append(gp.points, p)
+}
+
+func (gp *GraphPoints) convertPlotterXYs() plotter.XYs {
+	pts :

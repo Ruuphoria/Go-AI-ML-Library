@@ -95,4 +95,7 @@ func (gp *GraphPoints) AddPoint(p Point) {
 }
 
 func (gp *GraphPoints) convertPlotterXYs() plotter.XYs {
-	pts :
+	pts := make(plotter.XYs, len(gp.points))
+	for i := range pts {
+		pts[i].X = gp.points[i].X
+		pts[i].Y =

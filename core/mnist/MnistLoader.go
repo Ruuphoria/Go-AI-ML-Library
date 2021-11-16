@@ -144,3 +144,13 @@ func downloadMnistDataIfNeeded(rootPath string) error {
 		filePath := path.Join(rootPath, key)
 
 		// if mnist file is not found, download it.
+		if !util.Exists(filePath) {
+			err := util.DownloadFile(filePath, v)
+			if err != nil {
+				fmt.Printf("%s \n", err.Error())
+				return err
+			}
+		}
+	}
+	return nil
+}

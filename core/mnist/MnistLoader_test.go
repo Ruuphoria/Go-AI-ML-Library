@@ -16,4 +16,6 @@ func TestMnistLoader(t *testing.T) {
 			So(err, ShouldBeNil)
 		})
 
-		Convey(
+		Convey("Then : 学習データの数が60000件であること. テストデータの数が10000件であること", func() {
+			So(train.Count(), ShouldEqual, 60000)
+			So(test.Count

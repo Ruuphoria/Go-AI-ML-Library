@@ -25,4 +25,10 @@ func TestMnistLoader(t *testing.T) {
 
 /*func TestMnistData(t *testing.T) {
 	train, test, err := LoadData()
-	if err
+	if err != nil {
+		t.Errorf("Load mnist data is failed.")
+	}
+
+	// 学習データの中身を確認
+
+}*/

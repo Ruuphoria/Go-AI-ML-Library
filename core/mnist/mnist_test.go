@@ -19,4 +19,9 @@ func TestMnistLoad(t *testing.T) {
 	for _, image := range train.Images {
 		for i := 0; i < 28; i++ {
 			for j := 0; j < 28; j++ {
-			
+				y := image.At(i, j).(color.Gray).Y
+				fmt.Printf("%d\n", y)
+			}
+		}
+	}
+}

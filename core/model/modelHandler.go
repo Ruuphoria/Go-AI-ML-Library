@@ -167,3 +167,8 @@ func decodeNNModel(byteData []byte) (*NNModel, error) {
 
 func writeModelFile(modelPath string, data []byte) error {
 	return ioutil.WriteFile(modelPath, data, 0644)
+}
+
+func readModelFile(modelPath string) ([]byte, error) {
+	return ioutil.ReadFile(modelPath)
+}

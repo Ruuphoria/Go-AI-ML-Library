@@ -79,3 +79,91 @@ func convertNNModel(nnLayers *neuralNetwork.NeuralNetworkLayers) (*NNModel, erro
 	switch optimizer.(type) {
 	case *neuralNetwork.SGD:
 		nnData.Type = SgdType
+	default:
+		return nil, errors.New("意図しないoptimizerが指定されています.")
+	}
+	nnModel.Layers = append(nnModel.Layers, nnData)
+
+	return nnModel, nil
+}
+
+func convertNNLayers(model *NNModel) (*neuralNetwork.NeuralNetworkLayers, error) {
+	nnLayers := neuralNetwork.NewDefaultNeuralNetworkLayers()
+
+	for _, nnData := range model.Layers {
+		switch nnData.Type {
+		case SgdType:
+			// TODO : SGDのパラメーターを設定できるように対応
+			nnLayers.SetOptimizer(neuralNetwork.NewSGD())
+		case SoftmaxWithLossType:
+			nnLayers.SetLastActivationLayer(neuralNetwork.NewSoftmaxWithLoss())
+		case SigmoidType:
+			nnLayers.Add(neuralNetwork.NewSigmoid())
+		case ReluType:
+			nnLayers.Add(neuralNetwork.NewRelu())
+		case TanhType:
+			nnLayers.Add(neuralNetwork.NewTanh())
+		case AffineType:
+			affine := convertAffineFromNNData(nnData)
+			nnLayers.Add(affine)
+		default:
+			return nil, errors.New("意図しないレイヤータイプが保存されています")
+		}
+	}
+
+	return nnLayers, nil
+}
+
+func convertNNDataFromAffine(affine *neuralNetwork.Affine) NNData {
+	nnData := NewNNData()
+	nnData.Type = AffineType
+	params := affine.GetParams()
+
+	// wの設定
+	w := params["w"]
+	r, c := w.Dims()
+	nnData.Parameter["w"] = NNRawData{r, c, mat.DenseCopyOf(w).RawMatrix().Data}
+
+	// bの設定
+	b := params["b"]
+	r, c = b.Dims()
+	nnData.Parameter["b"] = NNRawData{r, c, mat.DenseCopyOf(b).RawMatrix().Data}
+
+	return nnData
+}
+
+func convertAffineFromNNData(data NNData) *neuralNetwork.Affine {
+	weight := data.Parameter["w"]
+	affine := neuralNetwork.NewAffine(weight.Row, weight.Col)
+
+	// wの設定
+	params := make(map[string]mat.Matrix)
+	params["w"] = mat.NewDense(weight.Row, weight.Col, weight.RawData)
+
+	// bの設定
+	bias := data.Parameter["b"]
+	params["b"] = mat.NewDense(bias.Row, bias.Col, bias.RawData)
+
+	affine.UpdateParams(params)
+	return affine
+}
+
+func encodeNNModel(model *NNModel) ([]byte, error) {
+	buf := bytes.NewBuffer(nil)
+	if err := gob.NewEncoder(buf).Encode(model); err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+func decodeNNModel(byteData []byte) (*NNModel, error) {
+	model := NewNNModel()
+	buf := bytes.NewBuffer(byteData)
+	if err := gob.NewDecoder(buf).Decode(model); err != nil {
+		return nil, err
+	}
+	return model, nil
+}
+
+func writeModelFile(modelPath string, data []byte) error {
+	return ioutil.WriteFile(modelPath, data, 0644)

@@ -12,4 +12,7 @@ import (
 )
 
 func TestModelHandler(t *testing.T) {
-	Convey("Given : 2層のニューラルネットワークの情報が与えられた時", t,
+	Convey("Given : 2層のニューラルネットワークの情報が与えられた時", t, func() {
+		nnLayers := neuralNetwork.NewDefaultNeuralNetworkLayers()
+
+		modelPath := "model.

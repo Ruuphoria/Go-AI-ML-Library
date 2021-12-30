@@ -15,4 +15,9 @@ func TestModelHandler(t *testing.T) {
 	Convey("Given : 2層のニューラルネットワークの情報が与えられた時", t, func() {
 		nnLayers := neuralNetwork.NewDefaultNeuralNetworkLayers()
 
-		modelPath := "model.
+		modelPath := "model.db"
+		defer os.Remove(modelPath)
+
+		Convey("AND : 1層目：5*10のAffineレイヤーを作成", nil)
+		inputSize := 5
+	

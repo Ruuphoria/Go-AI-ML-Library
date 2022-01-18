@@ -23,4 +23,5 @@ func TestModelHandler(t *testing.T) {
 		outputSize := 10
 		affine := neuralNetwork.NewAffine(inputSize, outputSize)
 
-		Convey("AND : 1層目：Affineレイ
+		Convey("AND : 1層目：Affineレイヤーのパラメーターを初期化し設定", nil)
+		w := mat.NewDense(inputSize, outputSize, util.CreateFloatArrayByStep(inputSize*outputSize, 0, 

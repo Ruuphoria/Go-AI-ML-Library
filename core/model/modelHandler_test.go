@@ -20,4 +20,7 @@ func TestModelHandler(t *testing.T) {
 
 		Convey("AND : 1層目：5*10のAffineレイヤーを作成", nil)
 		inputSize := 5
-	
+		outputSize := 10
+		affine := neuralNetwork.NewAffine(inputSize, outputSize)
+
+		Convey("AND : 1層目：Affineレイ

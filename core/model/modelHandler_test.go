@@ -31,4 +31,7 @@ func TestModelHandler(t *testing.T) {
 		params["b"] = b
 		affine.UpdateParams(params)
 
-		Conve
+		Convey("AND : 1層目：Tanhレイヤーを作成", nil)
+		tanh := neuralNetwork.NewTanh()
+
+		Convey("AND : 1層目のレ

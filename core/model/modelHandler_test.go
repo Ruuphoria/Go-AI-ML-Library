@@ -34,4 +34,9 @@ func TestModelHandler(t *testing.T) {
 		Convey("AND : 1層目：Tanhレイヤーを作成", nil)
 		tanh := neuralNetwork.NewTanh()
 
-		Convey("AND : 1層目のレ
+		Convey("AND : 1層目のレイヤーを追加", nil)
+		nnLayers.Add(affine)
+		nnLayers.Add(tanh)
+
+		Convey("AND : 2層目：10*3のAffineレイヤーを作成", nil)
+		

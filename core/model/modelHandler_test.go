@@ -39,4 +39,8 @@ func TestModelHandler(t *testing.T) {
 		nnLayers.Add(tanh)
 
 		Convey("AND : 2層目：10*3のAffineレイヤーを作成", nil)
-		
+		inputSize = 10
+		outputSize = 3
+		affine2 := neuralNetwork.NewAffine(inputSize, outputSize)
+
+	

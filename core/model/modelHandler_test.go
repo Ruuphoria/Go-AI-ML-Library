@@ -45,4 +45,7 @@ func TestModelHandler(t *testing.T) {
 
 		Convey("AND : 2層目：Affineレイヤーのパラメーターを初期化し設定", nil)
 		w2 := mat.NewDense(inputSize, outputSize, util.CreateFloatArrayByStep(inputSize*outputSize, 0, 0.5))
-		b2 := mat.NewVecDense(outputSize, util.CreateFloatArrayBySte
+		b2 := mat.NewVecDense(outputSize, util.CreateFloatArrayByStep(outputSize, 0, 1))
+		params2 := make(map[string]mat.Matrix, 2)
+		params2["w"] = w2
+		

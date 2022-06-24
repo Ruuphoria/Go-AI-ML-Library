@@ -54,4 +54,6 @@ func TestModelHandler(t *testing.T) {
 		Convey("AND : 2層目のレイヤーを追加", nil)
 		nnLayers.Add(affine2)
 
-		Con
+		Convey("When : NNの情報を保存する", func() {
+			err := WriteNNLayers(modelPath, nnLayers)
+			So(err, ShouldBeNil

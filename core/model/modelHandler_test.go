@@ -48,4 +48,10 @@ func TestModelHandler(t *testing.T) {
 		b2 := mat.NewVecDense(outputSize, util.CreateFloatArrayByStep(outputSize, 0, 1))
 		params2 := make(map[string]mat.Matrix, 2)
 		params2["w"] = w2
-		
+		params2["b"] = b2
+		affine2.UpdateParams(params2)
+
+		Convey("AND : 2層目のレイヤーを追加", nil)
+		nnLayers.Add(affine2)
+
+		Con

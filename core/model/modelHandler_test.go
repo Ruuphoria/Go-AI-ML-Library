@@ -56,4 +56,10 @@ func TestModelHandler(t *testing.T) {
 
 		Convey("When : NNの情報を保存する", func() {
 			err := WriteNNLayers(modelPath, nnLayers)
-			So(err, ShouldBeNil
+			So(err, ShouldBeNil)
+
+			Convey("AND : NNの情報を復元する", nil)
+			reLayers, err := ReadNNLayers(modelPath)
+			So(err, ShouldBeNil)
+
+			Convey("Then : 復

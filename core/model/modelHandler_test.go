@@ -62,4 +62,6 @@ func TestModelHandler(t *testing.T) {
 			reLayers, err := ReadNNLayers(modelPath)
 			So(err, ShouldBeNil)
 
-			Convey("Then : 復
+			Convey("Then : 復元したNNのパラメーターが復元前と同一であること", func() {
+				beforeLayers := nnLayers.GetLayers()
+				afterLayers := re

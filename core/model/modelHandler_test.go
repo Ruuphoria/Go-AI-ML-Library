@@ -64,4 +64,8 @@ func TestModelHandler(t *testing.T) {
 
 			Convey("Then : 復元したNNのパラメーターが復元前と同一であること", func() {
 				beforeLayers := nnLayers.GetLayers()
-				afterLayers := re
+				afterLayers := reLayers.GetLayers()
+
+				for i, bLayer := range beforeLayers {
+					aLayer := afterLayers[i]
+					//

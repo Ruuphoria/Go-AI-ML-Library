@@ -69,4 +69,8 @@ func TestModelHandler(t *testing.T) {
 				for i, bLayer := range beforeLayers {
 					aLayer := afterLayers[i]
 					// レイヤーの型が同一であること
-					So(reflect.ValueOf(bLayer).Type(), ShouldEqual, reflect.ValueOf(aLayer).Type(
+					So(reflect.ValueOf(bLayer).Type(), ShouldEqual, reflect.ValueOf(aLayer).Type())
+					// レイヤーのパラメーターが同一であることを確認
+					switch aLayer.(type) {
+					case *neuralNetwork.Affine:
+						aAffine :

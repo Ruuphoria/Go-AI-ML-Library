@@ -68,4 +68,5 @@ func TestModelHandler(t *testing.T) {
 
 				for i, bLayer := range beforeLayers {
 					aLayer := afterLayers[i]
-					//
+					// レイヤーの型が同一であること
+					So(reflect.ValueOf(bLayer).Type(), ShouldEqual, reflect.ValueOf(aLayer).Type(

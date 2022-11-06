@@ -73,4 +73,7 @@ func TestModelHandler(t *testing.T) {
 					// レイヤーのパラメーターが同一であることを確認
 					switch aLayer.(type) {
 					case *neuralNetwork.Affine:
-						aAffine :
+						aAffine := aLayer.(*neuralNetwork.Affine)
+						bAffine := bLayer.(*neuralNetwork.Affine)
+
+						aParams := aAff

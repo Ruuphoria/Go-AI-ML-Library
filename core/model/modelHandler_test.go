@@ -88,4 +88,6 @@ func TestModelHandler(t *testing.T) {
 
 			Convey("Then : 復元したNNと復元前のNNで同一結果が出ること", func() {
 				input := mat.NewDense(3, 5, util.CreateFloatArrayByStep(15, 1, 1))
-				t := mat.Ne
+				t := mat.NewDense(3, 3, []float64{0.1, 0.1, 0.8, 0.7, 0.2, 0.1, 0.5, 0.3, 0.2})
+
+				// 予測結果のlossとa

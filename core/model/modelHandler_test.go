@@ -86,4 +86,6 @@ func TestModelHandler(t *testing.T) {
 				}
 			})
 
-			Convey("Then : 復元したNNと復元前のNNで同
+			Convey("Then : 復元したNNと復元前のNNで同一結果が出ること", func() {
+				input := mat.NewDense(3, 5, util.CreateFloatArrayByStep(15, 1, 1))
+				t := mat.Ne

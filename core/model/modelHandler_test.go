@@ -76,4 +76,8 @@ func TestModelHandler(t *testing.T) {
 						aAffine := aLayer.(*neuralNetwork.Affine)
 						bAffine := bLayer.(*neuralNetwork.Affine)
 
-						aParams := aAff
+						aParams := aAffine.GetParams()
+						bParams := bAffine.GetParams()
+
+						// パラメーターの比較
+						So(mat.Equal(aParams["w"], bParams["w"]), 

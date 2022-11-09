@@ -80,4 +80,10 @@ func TestModelHandler(t *testing.T) {
 						bParams := bAffine.GetParams()
 
 						// パラメーターの比較
-						So(mat.Equal(aParams["w"], bParams["w"]), 
+						So(mat.Equal(aParams["w"], bParams["w"]), ShouldBeTrue)
+						So(mat.Equal(aParams["b"], bParams["b"]), ShouldBeTrue)
+					}
+				}
+			})
+
+			Convey("Then : 復元したNNと復元前のNNで同

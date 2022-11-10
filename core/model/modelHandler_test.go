@@ -93,4 +93,9 @@ func TestModelHandler(t *testing.T) {
 				// 予測結果のlossとaccuracyが同一になることを確認
 				bLoss, bAcc := nnLayers.Forward(input, t)
 				aLoss, aAcc := reLayers.Forward(input, t)
-				So(bLos
+				So(bLoss, ShouldEqual, aLoss)
+				So(bAcc, ShouldEqual, aAcc)
+			})
+		})
+	})
+}

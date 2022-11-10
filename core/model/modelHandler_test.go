@@ -90,4 +90,7 @@ func TestModelHandler(t *testing.T) {
 				input := mat.NewDense(3, 5, util.CreateFloatArrayByStep(15, 1, 1))
 				t := mat.NewDense(3, 3, []float64{0.1, 0.1, 0.8, 0.7, 0.2, 0.1, 0.5, 0.3, 0.2})
 
-				// 予測結果のlossとa
+				// 予測結果のlossとaccuracyが同一になることを確認
+				bLoss, bAcc := nnLayers.Forward(input, t)
+				aLoss, aAcc := reLayers.Forward(input, t)
+				So(bLos

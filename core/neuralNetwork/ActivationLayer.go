@@ -136,3 +136,67 @@ func calcAccuracy(out mat.Matrix, t mat.Matrix) float64 {
 	td := mat.DenseCopyOf(t)
 	for i := 0; i < r; i++ {
 		key, _ := util.MaxValue(od.RawRowView(i))
+		if td.At(i, key) == 1 {
+			correct++
+		}
+	}
+	return float64(correct) / float64(r)
+}
+
+func (s *SoftmaxWithLoss) Backward() mat.Matrix {
+	r, c := s.t.Dims()
+	dense := mat.NewDense(r, c, nil)
+	bs := r
+
+	dense.Apply(func(i, j int, v float64) float64 {
+		return (v - s.t.At(i, j)) / float64(bs)
+	}, s.out)
+	return dense
+}
+
+func (s *SoftmaxWithLoss) softmax(x mat.Matrix) mat.Matrix {
+	r, c := x.Dims()
+	tmp := mat.DenseCopyOf(x)
+	dense := mat.NewDense(r, c, nil)
+	// 行の計算
+	for i := 0; i < r; i++ {
+		// 1つのデータのベクトルを取得し、合計値と要素の最大値を計算
+		// TODO : 処理に時間がかかるため、リファクタリングする
+		v := tmp.RowView(i)
+		max := mat.Max(v.T())
+		sum := 0.0
+		for k := 0; k < c; k++ {
+			sum += math.Exp(v.At(k, 0) - max)
+		}
+
+		// 各列の値を算出
+		for j := 0; j < c; j++ {
+			val := math.Exp(v.At(j, 0)-max) / sum
+			dense.Set(i, j, val)
+		}
+	}
+	return dense
+}
+
+// crossEntropyError : 実値と正解データから交差エントロピー誤差を算出
+// x : 入力値, t : 正解データ
+func (s *SoftmaxWithLoss) crossEntropyError(x mat.Matrix, t mat.Matrix) float64 {
+	xr, xc := x.Dims()
+	tr, tc := t.Dims()
+
+	// 実際のデータと正解データの行列の形が同じかを確認
+	if xr != tr || xc != tc {
+		// TODO エラー対応
+		return 0.0
+	}
+
+	// バッチサイズを取得(行数)
+	bs := xr
+
+	// 各値の交差エントロピーを求め、バッチサイズを考慮して平均を出力
+	dense := mat.NewDense(xr, xc, nil)
+	dense.Apply(func(i, j int, v float64) float64 {
+		return -1 * v * math.Log(x.At(i, j)+delta)
+	}, t)
+	return mat.Sum(dense) / float64(bs)
+}

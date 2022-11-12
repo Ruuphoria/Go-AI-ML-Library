@@ -13,4 +13,7 @@ type NeuralNetworkBaseLayer interface {
 	Backward(dout mat.Matrix) mat.Matrix
 }
 
-// Neu
+// NeuralNetworkLayer : ニューラルネットワークの素子に関するIF
+type NeuralNetworkLayer interface {
+	NeuralNetworkBaseLayer
+	

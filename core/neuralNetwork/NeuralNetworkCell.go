@@ -5,4 +5,6 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-// Ne
+// NeuralNetworkBaseLayer : ニューラルネットワークの素子に関する基本的なIF
+type NeuralNetworkBaseLayer interface {
+	// Forward : 順方

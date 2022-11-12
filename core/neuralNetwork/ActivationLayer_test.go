@@ -256,3 +256,19 @@ func softmax(values []float64) []float64 {
 }
 
 func softmax_batch(values mat.Matrix) mat.Matrix {
+	r, c := values.Dims()
+	dense := mat.NewDense(r, c, nil)
+	for i := 0; i < r; i++ {
+		vs := softmax(mat.DenseCopyOf(values).RawRowView(i))
+		dense.SetRow(i, vs)
+	}
+	return dense
+}
+
+func max(values []float64) float64 {
+	max := values[0]
+	for _, v := range values {
+		max = math.Max(max, v)
+	}
+	return max
+}

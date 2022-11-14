@@ -16,4 +16,7 @@ type NeuralNetworkBaseLayer interface {
 // NeuralNetworkLayer : ニューラルネットワークの素子に関するIF
 type NeuralNetworkLayer interface {
 	NeuralNetworkBaseLayer
-	
+	// GetParams : 各種パラメーターを取得
+	GetParams() map[string]mat.Matrix
+	// GetGradients : 各種勾配を取得
+	GetG

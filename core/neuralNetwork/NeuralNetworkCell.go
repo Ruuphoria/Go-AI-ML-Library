@@ -32,4 +32,6 @@ type Affine struct {
 	db mat.Vector
 }
 
-// NewAffi
+// NewAffine : アフィン変換の素子を取得
+func NewAffine(inputSize, outputSize int) *Affine {
+	w := mat.NewDense(inp

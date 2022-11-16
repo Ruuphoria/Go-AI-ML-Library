@@ -24,4 +24,12 @@ type NeuralNetworkLayer interface {
 	UpdateParams(map[string]mat.Matrix)
 }
 
-type Affine st
+type Affine struct {
+	w  mat.Matrix
+	b  mat.Vector
+	x  mat.Matrix
+	dw mat.Matrix
+	db mat.Vector
+}
+
+// NewAffi

@@ -19,4 +19,9 @@ type NeuralNetworkLayer interface {
 	// GetParams : 各種パラメーターを取得
 	GetParams() map[string]mat.Matrix
 	// GetGradients : 各種勾配を取得
-	GetG
+	GetGradients() map[string]mat.Matrix
+	// UpdateParams : 各種パラメーターを更新
+	UpdateParams(map[string]mat.Matrix)
+}
+
+type Affine st

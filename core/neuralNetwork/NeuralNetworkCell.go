@@ -35,4 +35,11 @@ type Affine struct {
 // NewAffine : アフィン変換の素子を取得
 func NewAffine(inputSize, outputSize int) *Affine {
 	w := mat.NewDense(inputSize, outputSize, util.NormRandomArray(0.01, outputSize*inputSize))
-	b := mat.NewVecDense(outputSize, util.NormRandomArra
+	b := mat.NewVecDense(outputSize, util.NormRandomArray(0.01, outputSize))
+	a := Affine{}
+	a.w = w
+	a.b = b
+	return &a
+}
+
+func newAffine(w mat.Matrix

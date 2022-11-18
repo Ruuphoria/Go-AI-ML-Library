@@ -42,4 +42,9 @@ func NewAffine(inputSize, outputSize int) *Affine {
 	return &a
 }
 
-func newAffine(w mat.Matrix
+func newAffine(w mat.Matrix, b mat.Vector) *Affine {
+	a := Affine{w: w, b: b}
+	return &a
+}
+
+func (aff *Affine) Forward(x

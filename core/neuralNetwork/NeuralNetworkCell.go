@@ -47,4 +47,7 @@ func newAffine(w mat.Matrix, b mat.Vector) *Affine {
 	return &a
 }
 
-func (aff *Affine) Forward(x
+func (aff *Affine) Forward(x mat.Matrix) mat.Matrix {
+	aff.x = x
+	batchSize, _ := aff.x.Dims()
+	_, outputSize := aff.w.Dims(

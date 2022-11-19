@@ -50,4 +50,7 @@ func newAffine(w mat.Matrix, b mat.Vector) *Affine {
 func (aff *Affine) Forward(x mat.Matrix) mat.Matrix {
 	aff.x = x
 	batchSize, _ := aff.x.Dims()
-	_, outputSize := aff.w.Dims(
+	_, outputSize := aff.w.Dims()
+	d := mat.NewDense(batchSize, outputSize, nil)
+	d.Mul(aff.x, aff.w)
+	d.Apply(func(i, j int, v float64) 

@@ -69,4 +69,10 @@ func (aff *Affine) Backward(dout mat.Matrix) mat.Matrix {
 	// dwの計算
 	r, c = aff.w.Dims()
 	dw := mat.NewDense(r, c, nil)
-	dw.Mul(util.Transpose(a
+	dw.Mul(util.Transpose(aff.x), dout)
+	aff.dw = dw
+
+	// dbの計算
+	r, c = dout.Dims()
+	db := mat.NewVecDense(aff.b.Len(), nil)
+	for i :

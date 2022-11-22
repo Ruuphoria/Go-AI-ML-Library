@@ -75,4 +75,8 @@ func (aff *Affine) Backward(dout mat.Matrix) mat.Matrix {
 	// dbの計算
 	r, c = dout.Dims()
 	db := mat.NewVecDense(aff.b.Len(), nil)
-	for i :
+	for i := 0; i < r; i++ {
+		for j := 0; j < c; j++ {
+			tmpVal := db.AtVec(j)
+			db.SetVec(j, tmpVal+dout.At(i, j))
+	

@@ -79,4 +79,11 @@ func (aff *Affine) Backward(dout mat.Matrix) mat.Matrix {
 		for j := 0; j < c; j++ {
 			tmpVal := db.AtVec(j)
 			db.SetVec(j, tmpVal+dout.At(i, j))
-	
+		}
+	}
+	aff.db = db
+	return dx
+}
+
+func (aff *Affine) GetParams() map[string]mat.Matrix {
+	params := mak

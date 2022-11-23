@@ -86,4 +86,10 @@ func (aff *Affine) Backward(dout mat.Matrix) mat.Matrix {
 }
 
 func (aff *Affine) GetParams() map[string]mat.Matrix {
-	params := mak
+	params := make(map[string]mat.Matrix)
+	params["w"] = aff.w
+	params["b"] = aff.b
+	return params
+}
+
+func (aff *Aff

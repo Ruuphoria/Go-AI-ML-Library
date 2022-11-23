@@ -94,4 +94,10 @@ func (aff *Affine) GetParams() map[string]mat.Matrix {
 
 func (aff *Affine) GetGradients() map[string]mat.Matrix {
 	grads := make(map[string]mat.Matrix)
-	grads["w"] = a
+	grads["w"] = aff.dw
+	grads["b"] = aff.db
+	return grads
+}
+
+func (aff *Affine) UpdateParams(params map[string]mat.Matrix) {
+	/

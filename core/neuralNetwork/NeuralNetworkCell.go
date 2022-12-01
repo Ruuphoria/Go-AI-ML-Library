@@ -104,4 +104,7 @@ func (aff *Affine) UpdateParams(params map[string]mat.Matrix) {
 	aff.w = params["w"]
 	aff.b = mat.DenseCopyOf(params["b"]).ColView(0)
 
-	/
+	// 勾配のリセット
+	aff.dw = nil
+	aff.db = nil
+}

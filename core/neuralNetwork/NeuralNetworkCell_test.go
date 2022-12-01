@@ -8,4 +8,6 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func T
+func TestAffine(t *testing.T) {
+	Convey("Given : アフィン変換のレイヤーが一つ与えられた時", t, func() {
+		Conv

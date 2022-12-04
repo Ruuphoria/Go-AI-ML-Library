@@ -16,4 +16,6 @@ func TestAffine(t *testing.T) {
 		b := mat.NewVecDense(2, []float64{-2, -1})
 		aff := newAffine(w, b)
 		Convey("When : 入力xを2*3行列とし、値を5-10とする", func() {
-			x := mat.NewDense(2, 3, 
+			x := mat.NewDense(2, 3, util.CreateFloatArrayByStep(6, 5, 1))
+			out := aff.Forward(x)
+			Convey("Then : Forward処理を行う. 2*2の行列が出力される", func() {

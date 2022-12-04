@@ -19,3 +19,7 @@ func TestAffine(t *testing.T) {
 			x := mat.NewDense(2, 3, util.CreateFloatArrayByStep(6, 5, 1))
 			out := aff.Forward(x)
 			Convey("Then : Forward処理を行う. 2*2の行列が出力される", func() {
+				// out
+				// [56, 75]
+				// [83, 111]
+				expectedOut := mat.NewDense(2, 2, []float64{56, 75, 83, 111}

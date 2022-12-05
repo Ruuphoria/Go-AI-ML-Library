@@ -26,4 +26,6 @@ func TestAffine(t *testing.T) {
 				So(mat.Equal(out, expectedOut), ShouldBeTrue)
 			})
 
-			Convey("AND : 誤差doutを2*2行列とし、値を5
+			Convey("AND : 誤差doutを2*2行列とし、値を5-20とする", nil)
+			dout := mat.NewDense(2, 2, util.CreateFloatArrayByStep(4, 5, 5))
+			Convey("Then : Ba

@@ -22,4 +22,8 @@ func TestAffine(t *testing.T) {
 				// out
 				// [56, 75]
 				// [83, 111]
-				expectedOut := mat.NewDense(2, 2, []float64{56, 75, 83, 111}
+				expectedOut := mat.NewDense(2, 2, []float64{56, 75, 83, 111})
+				So(mat.Equal(out, expectedOut), ShouldBeTrue)
+			})
+
+			Convey("AND : 誤差doutを2*2行列とし、値を5

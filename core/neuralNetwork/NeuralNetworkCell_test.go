@@ -28,4 +28,7 @@ func TestAffine(t *testing.T) {
 
 			Convey("AND : 誤差doutを2*2行列とし、値を5-20とする", nil)
 			dout := mat.NewDense(2, 2, util.CreateFloatArrayByStep(4, 5, 5))
-			Convey("Then : Ba
+			Convey("Then : Backward処理を行う. 2*2の行列が出力される", func() {
+				dx := aff.Backward(dout)
+				// dx
+				// [25, 55, 85

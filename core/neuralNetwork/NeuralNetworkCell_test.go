@@ -31,4 +31,7 @@ func TestAffine(t *testing.T) {
 			Convey("Then : Backward処理を行う. 2*2の行列が出力される", func() {
 				dx := aff.Backward(dout)
 				// dx
-				// [25, 55, 85
+				// [25, 55, 85]
+				// [55, 125, 195]
+				expectedDx := mat.NewDense(2, 3, []float64{25, 55, 85, 55, 125, 195})
+				So(mat.Equal(dx, e

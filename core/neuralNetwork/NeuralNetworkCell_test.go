@@ -39,4 +39,5 @@ func TestAffine(t *testing.T) {
 				// [145, 210]
 				// [165, 240]
 				// [185, 270]
-				expectedDw := mat.NewDense(3
+				expectedDw := mat.NewDense(3, 2, []float64{145, 210, 165, 240, 185, 270})
+				So(mat.Equal(aff.dw, exp

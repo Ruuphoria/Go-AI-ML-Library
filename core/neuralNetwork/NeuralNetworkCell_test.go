@@ -40,4 +40,8 @@ func TestAffine(t *testing.T) {
 				// [165, 240]
 				// [185, 270]
 				expectedDw := mat.NewDense(3, 2, []float64{145, 210, 165, 240, 185, 270})
-				So(mat.Equal(aff.dw, exp
+				So(mat.Equal(aff.dw, expectedDw), ShouldBeTrue)
+				// db
+				// [20, 30]
+				expectedDb := mat.NewVecDense(2, []float64{20, 30})
+				So(mat.Equal(aff.

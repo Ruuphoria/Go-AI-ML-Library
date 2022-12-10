@@ -49,4 +49,5 @@ func TestAffine(t *testing.T) {
 
 			Convey("AND : 各値にして修正", nil)
 			params := make(map[string]mat.Matrix)
-			para
+			params["w"] = mat.NewDense(3, 2, util.CreateFloatArrayByStep(6, 10, 10))
+			params["b"] = mat.NewVecDen

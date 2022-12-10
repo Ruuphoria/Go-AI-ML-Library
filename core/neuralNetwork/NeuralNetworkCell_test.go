@@ -44,4 +44,9 @@ func TestAffine(t *testing.T) {
 				// db
 				// [20, 30]
 				expectedDb := mat.NewVecDense(2, []float64{20, 30})
-				So(mat.Equal(aff.
+				So(mat.Equal(aff.db, expectedDb), ShouldBeTrue)
+			})
+
+			Convey("AND : 各値にして修正", nil)
+			params := make(map[string]mat.Matrix)
+			para

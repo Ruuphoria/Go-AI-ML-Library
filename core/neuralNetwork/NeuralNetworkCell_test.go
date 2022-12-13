@@ -53,4 +53,7 @@ func TestAffine(t *testing.T) {
 			params["b"] = mat.NewVecDense(2, []float64{2, 4})
 			Convey("Then : Update処理を行う.", func() {
 				aff.UpdateParams(params)
-				ps := aff.GetParam
+				ps := aff.GetParams()
+				So(mat.Equal(ps["w"], params["w"]), ShouldBeTrue)
+				So(mat.Equal(ps["b"], params["b"]), ShouldBeTrue)
+		

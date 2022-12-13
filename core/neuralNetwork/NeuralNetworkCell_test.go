@@ -56,4 +56,7 @@ func TestAffine(t *testing.T) {
 				ps := aff.GetParams()
 				So(mat.Equal(ps["w"], params["w"]), ShouldBeTrue)
 				So(mat.Equal(ps["b"], params["b"]), ShouldBeTrue)
-		
+			})
+		})
+	})
+}

@@ -20,4 +20,10 @@ type SGDOption func(*SGD)
 
 const (
 	// DefaultLearningRate : デフォルトの学習率の値
-	DefaultLearningRa
+	DefaultLearningRate = 0.01
+)
+
+// NewSGD : SGDを取得するAPI
+// 初期化時にオプション指定が可能
+func NewSGD(options ...SGDOption) *SGD {
+	sgd := SGD

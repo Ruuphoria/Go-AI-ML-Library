@@ -15,4 +15,9 @@ type SGD struct {
 	lr float64
 }
 
-// SGDOption 
+// SGDOption : SGDのオプション
+type SGDOption func(*SGD)
+
+const (
+	// DefaultLearningRate : デフォルトの学習率の値
+	DefaultLearningRa

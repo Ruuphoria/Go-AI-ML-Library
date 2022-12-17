@@ -43,4 +43,7 @@ func WithSGDLearningRate(lr float64) SGDOption {
 	}
 }
 
-func (sgd *SGD) Update(params map[string]mat.Matrix, g
+func (sgd *SGD) Update(params map[string]mat.Matrix, grads map[string]mat.Matrix) {
+	for key, _ := range params {
+		//r, c := params[key].Dims()
+		den

@@ -37,4 +37,10 @@ func NewSGD(options ...SGDOption) *SGD {
 }
 
 // WithSGDLearningRate : SGDの学習率指定のオプションを取得
-func WithSGDLearningRate(lr float64) SGDOption 
+func WithSGDLearningRate(lr float64) SGDOption {
+	return func(sgd *SGD) {
+		sgd.lr = lr
+	}
+}
+
+func (sgd *SGD) Update(params map[string]mat.Matrix, g

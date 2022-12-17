@@ -33,4 +33,8 @@ func NewSGD(options ...SGDOption) *SGD {
 	for _, opt := range options {
 		opt(&sgd)
 	}
-	ret
+	return &sgd
+}
+
+// WithSGDLearningRate : SGDの学習率指定のオプションを取得
+func WithSGDLearningRate(lr float64) SGDOption 

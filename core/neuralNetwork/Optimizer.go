@@ -26,4 +26,11 @@ const (
 // NewSGD : SGDを取得するAPI
 // 初期化時にオプション指定が可能
 func NewSGD(options ...SGDOption) *SGD {
-	sgd := SGD
+	sgd := SGD{}
+	sgd.lr = DefaultLearningRate
+
+	// オプションが設定されていれば利用
+	for _, opt := range options {
+		opt(&sgd)
+	}
+	ret

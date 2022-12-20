@@ -50,4 +50,11 @@ func (sgd *SGD) Update(params map[string]mat.Matrix, grads map[string]mat.Matrix
 
 		// 学習率分だけ勾配を拡縮
 		dense.Apply(func(i, j int, v float64) float64 {
-			
+			return v * sgd.lr
+		}, grads[key])
+
+		// 重みから勾配分（学習率を考慮）だけ差をとる
+		dense.Sub(params[key], dense)
+
+		// paramに戻す
+		params[

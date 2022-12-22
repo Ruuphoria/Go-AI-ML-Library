@@ -57,4 +57,6 @@ func (sgd *SGD) Update(params map[string]mat.Matrix, grads map[string]mat.Matrix
 		dense.Sub(params[key], dense)
 
 		// paramに戻す
-		params[
+		params[key] = dense
+	}
+}

@@ -8,4 +8,7 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func TestSGD(t *testing
+func TestSGD(t *testing.T) {
+	Convey("Given : 1つの重み、1つのバイアスが与えられた時", t, func() {
+		params := make(map[string]mat.Matrix)
+	

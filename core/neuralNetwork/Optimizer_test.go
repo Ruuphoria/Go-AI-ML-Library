@@ -14,4 +14,7 @@ func TestSGD(t *testing.T) {
 		grads := make(map[string]mat.Matrix)
 		Convey("AND 重み行列は4*3行列で各値は1-12とし、勾配は0-5.5(0.5刻み）とする", nil)
 		w := mat.NewDense(4, 3, util.CreateFloatArrayByStep(12, 1.0, 1.0))
-		dw := mat.NewDense(4, 3,
+		dw := mat.NewDense(4, 3, util.CreateFloatArrayByStep(12, 0, 0.5))
+		params["w"] = w
+		grads["w"] = dw
+		Convey("AND バイアスは3次元で各値は0-2とし

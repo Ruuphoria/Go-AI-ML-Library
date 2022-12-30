@@ -22,4 +22,6 @@ func TestSGD(t *testing.T) {
 		db := mat.NewVecDense(3, util.CreateFloatArrayByStep(3, -2, 1.0))
 		params["b"] = b
 		grads["b"] = db
-		Convey("When : SGD
+		Convey("When : SGDの学習率0.1で初期化", func() {
+			sgd := NewSGD(WithSGDLearningRate(0.1))
+			Convey("Then : Optimizerでu

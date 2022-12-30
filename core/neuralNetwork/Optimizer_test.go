@@ -24,4 +24,9 @@ func TestSGD(t *testing.T) {
 		grads["b"] = db
 		Convey("When : SGDの学習率0.1で初期化", func() {
 			sgd := NewSGD(WithSGDLearningRate(0.1))
-			Convey("Then : Optimizerでu
+			Convey("Then : Optimizerでupdateを実施", func() {
+				sgd.Update(params, grads)
+				// param["w"]
+				// [1, 1.95, 2.9]
+				// [3.85, 4.8, 5.75]
+				//

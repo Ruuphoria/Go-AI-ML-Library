@@ -19,4 +19,7 @@ func TestSGD(t *testing.T) {
 		grads["w"] = dw
 		Convey("AND バイアスは3次元で各値は0-2とし、勾配は-2-0とする", nil)
 		b := mat.NewVecDense(3, util.CreateFloatArrayByStep(3, 0, 1.0))
-		db := mat.NewVec
+		db := mat.NewVecDense(3, util.CreateFloatArrayByStep(3, -2, 1.0))
+		params["b"] = b
+		grads["b"] = db
+		Convey("When : SGD

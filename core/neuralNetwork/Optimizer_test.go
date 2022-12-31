@@ -31,4 +31,6 @@ func TestSGD(t *testing.T) {
 				// [3.85, 4.8, 5.75]
 				// [6.7, 7.65, 8.6]
 				// [9.55, 10.5, 11.45]
-				expectedW := mat.NewDense(4, 3, []float64{1, 1.95, 2.9, 3.85, 4.
+				expectedW := mat.NewDense(4, 3, []float64{1, 1.95, 2.9, 3.85, 4.8, 5.75, 6.7, 7.65, 8.6, 9.55, 10.5, 11.45})
+				So(mat.Equal(params["w"], expectedW), ShouldBeTrue)
+		

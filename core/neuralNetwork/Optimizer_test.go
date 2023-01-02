@@ -35,4 +35,9 @@ func TestSGD(t *testing.T) {
 				So(mat.Equal(params["w"], expectedW), ShouldBeTrue)
 				// param["b"]
 				// [0.2, 1.1, 2]
-				expectedB := mat.NewVecDense(3, []float64{0.2, 1.1
+				expectedB := mat.NewVecDense(3, []float64{0.2, 1.1, 2.0})
+				So(mat.Equal(params["b"], expectedB), ShouldBeTrue)
+			})
+		})
+	})
+}

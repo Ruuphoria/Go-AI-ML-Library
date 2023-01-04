@@ -17,4 +17,10 @@ func NewImage(input []float64, w int, h int) Image {
 		row := input[i*w : (i+1)*w]
 		image = append(image, row)
 	}
-	r
+	return image
+}
+
+// ImageWithChannel : 複数チャネル（RGBなど）を持つ画像データを格納する配列データ
+type ImageWithChannel []Image
+
+// NewIm

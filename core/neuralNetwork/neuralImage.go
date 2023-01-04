@@ -23,4 +23,9 @@ func NewImage(input []float64, w int, h int) Image {
 // ImageWithChannel : 複数チャネル（RGBなど）を持つ画像データを格納する配列データ
 type ImageWithChannel []Image
 
-// NewIm
+// NewImageWithChannel : 複数チャネルを持つ画像データを作成
+// input : 画像の元データを格納した配列データ
+// w : 幅
+// h : 高さ
+// c : チャネル数
+func New

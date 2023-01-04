@@ -11,4 +11,10 @@ func NewImage(input []float64, w int, h int) Image {
 	if len(input) != w*h {
 		panic("入力された画像データと指定した幅・高さがマッチしてません")
 	}
-	image := m
+	image := make([][]float64, 0, h)
+
+	for i := 0; i < h; i++ {
+		row := input[i*w : (i+1)*w]
+		image = append(image, row)
+	}
+	r

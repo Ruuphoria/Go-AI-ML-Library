@@ -7,4 +7,8 @@ type Image [][]float64
 // input : 画像の元データを格納した配列データ
 // w : 幅
 // h : 高さ
-func NewImage(input []float
+func NewImage(input []float64, w int, h int) Image {
+	if len(input) != w*h {
+		panic("入力された画像データと指定した幅・高さがマッチしてません")
+	}
+	image := m

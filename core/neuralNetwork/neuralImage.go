@@ -35,4 +35,10 @@ func NewImageWithChannel(input []float64, w int, h int, c int) ImageWithChannel 
 	iwc := make([]Image, 0, c)
 
 	for i := 0; i < c; i++ {
-		image := NewImage(input[
+		image := NewImage(input[i*w*h:(i+1)*w*h], w, h)
+		iwc = append(iwc, image)
+	}
+	return iwc
+}
+
+// ImagesWithChannel : 複数チ

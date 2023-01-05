@@ -30,4 +30,9 @@ type ImageWithChannel []Image
 // c : チャネル数
 func NewImageWithChannel(input []float64, w int, h int, c int) ImageWithChannel {
 	if len(input) != w*h*c {
-		panic("入力された画像データと指定した
+		panic("入力された画像データと指定した幅・高さ・チャネル数がマッチしてません")
+	}
+	iwc := make([]Image, 0, c)
+
+	for i := 0; i < c; i++ {
+		image := NewImage(input[

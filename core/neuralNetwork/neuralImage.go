@@ -28,4 +28,6 @@ type ImageWithChannel []Image
 // w : 幅
 // h : 高さ
 // c : チャネル数
-func New
+func NewImageWithChannel(input []float64, w int, h int, c int) ImageWithChannel {
+	if len(input) != w*h*c {
+		panic("入力された画像データと指定した

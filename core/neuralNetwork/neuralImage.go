@@ -41,4 +41,8 @@ func NewImageWithChannel(input []float64, w int, h int, c int) ImageWithChannel 
 	return iwc
 }
 
-// ImagesWithChannel : 複数チ
+// ImagesWithChannel : 複数チャネルを持つ画像データを複数格納した配列データ
+type ImagesWithChannel []ImageWithChannel
+
+// NewImagesWithChannel : 複数チャネルを持つ画像データを作成
+// in

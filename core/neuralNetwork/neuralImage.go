@@ -45,4 +45,9 @@ func NewImageWithChannel(input []float64, w int, h int, c int) ImageWithChannel 
 type ImagesWithChannel []ImageWithChannel
 
 // NewImagesWithChannel : 複数チャネルを持つ画像データを作成
-// in
+// input : 画像の元データを格納した配列データ
+// w : 幅
+// h : 高さ
+// c : チャネル数
+// batch : 画像データ数（バッチ数）
+func NewImagesWithCh

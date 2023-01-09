@@ -50,4 +50,5 @@ type ImagesWithChannel []ImageWithChannel
 // h : 高さ
 // c : チャネル数
 // batch : 画像データ数（バッチ数）
-func NewImagesWithCh
+func NewImagesWithChannel(input []float64, w int, h int, c int, batch int) ImagesWithChannel {
+	if len(input) != w*h*c*batch

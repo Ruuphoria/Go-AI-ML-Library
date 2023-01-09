@@ -51,4 +51,9 @@ type ImagesWithChannel []ImageWithChannel
 // c : チャネル数
 // batch : 画像データ数（バッチ数）
 func NewImagesWithChannel(input []float64, w int, h int, c int, batch int) ImagesWithChannel {
-	if len(input) != w*h*c*batch
+	if len(input) != w*h*c*batch {
+		panic("入力された画像データと指定した幅・高さ・チャネル数・画像数がマッチしてません")
+	}
+	iwcb := make([]ImageWithChannel, 0, batch)
+
+	for i 

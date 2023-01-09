@@ -56,4 +56,6 @@ func NewImagesWithChannel(input []float64, w int, h int, c int, batch int) Image
 	}
 	iwcb := make([]ImageWithChannel, 0, batch)
 
-	for i 
+	for i := 0; i < batch; i++ {
+		imageWithChannel := NewImageWithChannel(input[i*w*h*c:(i+1)*w*h*c], w, h, c)
+		iwcb = appe

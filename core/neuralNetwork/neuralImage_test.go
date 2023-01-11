@@ -8,4 +8,8 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestNewIm
+func TestNewImage(t *testing.T) {
+	Convey("Given : 3 * 4の数値が配列で与えられた時", t, func() {
+		w := 3
+		h := 4
+		input := util.Create

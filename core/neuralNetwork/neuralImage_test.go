@@ -15,4 +15,7 @@ func TestNewImage(t *testing.T) {
 		input := util.CreateFloatArrayByStep(w*h, 0, 1)
 		Convey("When : Imageを作成する", func() {
 			image := NewImage(input, w, h)
-			Conv
+			Convey("Then : 3*4の2次元配列データが出来ていること", func() {
+				So(h, ShouldEqual, len(image))
+				for i := 0; i < h; i++ {
+		

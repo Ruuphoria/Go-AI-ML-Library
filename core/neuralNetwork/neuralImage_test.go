@@ -18,4 +18,5 @@ func TestNewImage(t *testing.T) {
 			Convey("Then : 3*4の2次元配列データが出来ていること", func() {
 				So(h, ShouldEqual, len(image))
 				for i := 0; i < h; i++ {
-		
+					So(w, ShouldEqual, len(image[i]))
+					So(reflect.DeepEqual(image[i], util.CreateFloatArrayByStep(w, 

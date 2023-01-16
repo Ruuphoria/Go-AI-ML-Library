@@ -27,4 +27,8 @@ func TestNewImage(t *testing.T) {
 }
 
 func TestNewImageWithChannel(t *testing.T) {
-	Con
+	Convey("Given : 幅3, 高さ4, チャネル数3の数値が配列で与えられた時", t, func() {
+		w := 3
+		h := 4
+		c := 3
+		input := util.Crea

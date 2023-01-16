@@ -19,4 +19,12 @@ func TestNewImage(t *testing.T) {
 				So(h, ShouldEqual, len(image))
 				for i := 0; i < h; i++ {
 					So(w, ShouldEqual, len(image[i]))
-					So(reflect.DeepEqual(image[i], util.CreateFloatArrayByStep(w, 
+					So(reflect.DeepEqual(image[i], util.CreateFloatArrayByStep(w, float64(i*w), 1)), ShouldBeTrue)
+				}
+			})
+		})
+	})
+}
+
+func TestNewImageWithChannel(t *testing.T) {
+	Con

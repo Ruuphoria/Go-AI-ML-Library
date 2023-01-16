@@ -33,4 +33,6 @@ func TestNewImageWithChannel(t *testing.T) {
 		c := 3
 		input := util.CreateFloatArrayByStep(w*h*c, 0, 1)
 		Convey("When : ImageWithChannelを作成する", func() {
-			imageWithChannel := NewImag
+			imageWithChannel := NewImageWithChannel(input, w, h, c)
+			Convey("Then : 3*4*3の3次元配列データが出来ていること", func() {
+				So(c, ShouldEqua

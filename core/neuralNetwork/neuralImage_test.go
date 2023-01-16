@@ -31,4 +31,6 @@ func TestNewImageWithChannel(t *testing.T) {
 		w := 3
 		h := 4
 		c := 3
-		input := util.Crea
+		input := util.CreateFloatArrayByStep(w*h*c, 0, 1)
+		Convey("When : ImageWithChannelを作成する", func() {
+			imageWithChannel := NewImag

@@ -38,3 +38,6 @@ func TestNewImageWithChannel(t *testing.T) {
 				So(c, ShouldEqual, len(imageWithChannel))
 				for i := 0; i < c; i++ {
 					So(h, ShouldEqual, len(imageWithChannel[i]))
+					for j := 0; j < h; j++ {
+						So(w, ShouldEqual, len(imageWithChannel[i][j]))
+						So(reflect.Dee

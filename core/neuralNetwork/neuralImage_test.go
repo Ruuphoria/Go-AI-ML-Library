@@ -49,4 +49,8 @@ func TestNewImageWithChannel(t *testing.T) {
 }
 
 func TestNewImagesWithChannel(t *testing.T) {
-	Convey
+	Convey("Given : 幅3, 高さ4, チャネル数3, バッチ数2の数値が配列で与えられた時", t, func() {
+		w := 3
+		h := 4
+		c := 3
+		batch := 

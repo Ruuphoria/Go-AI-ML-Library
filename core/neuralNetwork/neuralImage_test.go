@@ -63,4 +63,6 @@ func TestNewImagesWithChannel(t *testing.T) {
 					So(c, ShouldEqual, len(imagesWithChannel[i]))
 					for j := 0; j < c; j++ {
 						So(h, ShouldEqual, len(imagesWithChannel[i][j]))
-						for k := 0; k < h
+						for k := 0; k < h; k++ {
+							So(w, ShouldEqual, len(imagesWithChannel[i][j][k]))
+							So(reflect.DeepEqual(imagesWithChannel

@@ -61,4 +61,6 @@ func TestNewImagesWithChannel(t *testing.T) {
 				So(batch, ShouldEqual, len(imagesWithChannel))
 				for i := 0; i < batch; i++ {
 					So(c, ShouldEqual, len(imagesWithChannel[i]))
-					f
+					for j := 0; j < c; j++ {
+						So(h, ShouldEqual, len(imagesWithChannel[i][j]))
+						for k := 0; k < h

@@ -58,4 +58,7 @@ func TestNewImagesWithChannel(t *testing.T) {
 		Convey("When : ImagesWithChannelを作成する", func() {
 			imagesWithChannel := NewImagesWithChannel(input, w, h, c, batch)
 			Convey("Then : 3*4*3*2の4次元配列データが出来ていること", func() {
-				So(batch, ShouldEqual, len
+				So(batch, ShouldEqual, len(imagesWithChannel))
+				for i := 0; i < batch; i++ {
+					So(c, ShouldEqual, len(imagesWithChannel[i]))
+					f

@@ -56,4 +56,6 @@ func TestNewImagesWithChannel(t *testing.T) {
 		batch := 2
 		input := util.CreateFloatArrayByStep(w*h*c*batch, 0, 1)
 		Convey("When : ImagesWithChannelを作成する", func() {
-			imagesWithChannel := NewImagesWithChannel(input, w, h, c, batc
+			imagesWithChannel := NewImagesWithChannel(input, w, h, c, batch)
+			Convey("Then : 3*4*3*2の4次元配列データが出来ていること", func() {
+				So(batch, ShouldEqual, len

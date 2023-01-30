@@ -205,3 +205,23 @@ func (wrapper *TvmWrapper) Infer(moduleInfo *moduleInfo, input []float32) ([]flo
 	}
 
 	// Allocate output array to receive output data from inference function
+	out, err := gotvm.Empty(outputShape)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+
+	// get output from inference function
+	funcp, err = graphmod.GetFunction("get_output")
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	_, err = funcp.Invoke(int64(0), out)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	outAsSlice, _ := out.AsSlice()
+	return outAsSlice.([]float32), nil
+}

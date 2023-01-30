@@ -104,3 +104,104 @@ func (wrapper *TvmWrapper) LoadModel(modelParam *ModelParam) (*moduleInfo, error
 	defer runtime.GC()
 
 	// debug model parameters
+	fmt.Print(modelParam.DebugStr())
+
+	// load module library
+	fmt.Print("start to load module library...\n")
+	modLibP, err := gotvm.LoadModuleFromFile(modelParam.ModelLibPath)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+
+	// read module json file
+	fmt.Print("start to read module json file...\n")
+	bytes, err := ioutil.ReadFile(modelParam.ModelJSONPath)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	modJsonStr := string(bytes)
+
+	// create graph module of tvm
+	fmt.Print("start to create graph module of tvm...\n")
+	funcp, err := gotvm.GetGlobalFunction("tvm.graph_runtime.create")
+	if err != nil {
+		fmt.Printf(err.Error())
+		return nil, err
+	}
+	// graph_runtime.create
+	// arg[0] : model json text
+	// arg[1] : model library
+	// arg[2] : device type (ex. KDLCPU, KDLGPU...)
+	// arg[3] : device id
+	graphrt, err := funcp.Invoke(modJsonStr, modLibP, wrapper.config.DeviceType, (int64)(0))
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	graphmod := graphrt.AsModule()
+
+	// import params to graph module
+	fmt.Print("start to import params to graph module...\n")
+	bytes, err = ioutil.ReadFile(modelParam.ModelParamsPath)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	funcp, err = graphmod.GetFunction("load_params")
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	_, err = funcp.Invoke(bytes)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+
+	// create module information
+	fmt.Print("start to create module information...\n")
+	info := newModuleInfo(graphmod, modelParam.InputShape, modelParam.OutputShape)
+	return info, nil
+}
+
+// Infer : Infer the output data from input
+func (wrapper *TvmWrapper) Infer(moduleInfo *moduleInfo, input []float32) ([]float32, error) {
+	defer runtime.GC()
+	graphmod := moduleInfo.graphModule
+	inputShape := moduleInfo.inputShape
+	outputShape := moduleInfo.outputShape
+
+	// set input
+	funcp, err := graphmod.GetFunction("set_input")
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	// TODO : use device type
+	inputForTvm, err := gotvm.Empty(inputShape, "float32", gotvm.CPU(0))
+	if err != nil {
+		fmt.Print(err)
+		return nil, err
+	}
+	inputForTvm.CopyFrom(input)
+	_, err = funcp.Invoke("input", inputForTvm)
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+
+	// start to inference function
+	funcp, err = graphmod.GetFunction("run")
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+	_, err = funcp.Invoke()
+	if err != nil {
+		fmt.Print(err.Error())
+		return nil, err
+	}
+
+	// Allocate output array to receive output data from inference function

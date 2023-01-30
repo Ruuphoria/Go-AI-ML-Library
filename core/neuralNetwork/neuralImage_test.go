@@ -71,3 +71,5 @@ func TestNewImagesWithChannel(t *testing.T) {
 				}
 			})
 		})
+	})
+}

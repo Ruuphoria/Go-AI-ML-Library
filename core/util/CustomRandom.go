@@ -15,4 +15,9 @@ func randomFloat32(r *rand.Rand, min, max float32) float32 {
 
 func RandomFloatArray(min, max float64, count int) []float64 {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	list := make([]flo
+	list := make([]float64, 0, count)
+	for i := 0; i < count; i++ {
+		v := randomFloat(r, min, max)
+		list = append(list, v)
+	}
+	return list

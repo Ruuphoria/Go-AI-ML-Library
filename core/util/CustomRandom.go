@@ -13,4 +13,6 @@ func randomFloat32(r *rand.Rand, min, max float32) float32 {
 	return r.Float32()*(max-min) + min
 }
 
-func RandomFloatArray(min, max fl
+func RandomFloatArray(min, max float64, count int) []float64 {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	list := make([]flo

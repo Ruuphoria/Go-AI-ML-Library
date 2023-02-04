@@ -21,3 +21,7 @@ func RandomFloatArray(min, max float64, count int) []float64 {
 		list = append(list, v)
 	}
 	return list
+}
+
+func RandomFloatArray32(min, max float32, count int) []float32 {
+	r := rand.New(rand.NewSource(time.Now()

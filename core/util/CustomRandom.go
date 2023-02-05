@@ -43,4 +43,6 @@ func RandomIntArray(max int, count int) []int {
 }
 
 func NormRandomArray(stdenv float64, count int) []float64 {
-	
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	list := make([]float64, count)
+	for i, _ := range li

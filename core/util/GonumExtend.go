@@ -6,4 +6,9 @@ import "gonum.org/v1/gonum/mat"
 func Transpose(a mat.Matrix) mat.Matrix {
 	r, c := a.Dims()
 	dense := mat.NewDense(c, r, nil)
-	for 
+	for i := 0; i < c; i++ {
+		for j := 0; j < r; j++ {
+			dense.Set(i, j, a.At(j, i))
+		}
+	}
+	return d

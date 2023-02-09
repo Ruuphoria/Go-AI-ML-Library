@@ -11,4 +11,5 @@ func Transpose(a mat.Matrix) mat.Matrix {
 			dense.Set(i, j, a.At(j, i))
 		}
 	}
-	return d
+	return dense
+}

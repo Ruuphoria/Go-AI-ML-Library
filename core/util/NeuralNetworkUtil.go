@@ -7,4 +7,6 @@ package util
 // - 3次元目 : チャネルの分のデータ
 // - 4次元目 : データ数
 // ex) input
-/*func Im2col(input [][][][]float64, filterH int, filterW int, stride int, padding i
+/*func Im2col(input [][][][]float64, filterH int, filterW int, stride int, padding int) mat.Matrix {
+
+}*/

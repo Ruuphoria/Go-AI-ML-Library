@@ -10,4 +10,8 @@ import (
 )
 
 func main() {
-	// ニューラルネットワーク層をまとめるレイ
+	// ニューラルネットワーク層をまとめるレイヤーの作成
+	layers := neuralNetwork.NewDefaultNeuralNetworkLayers()
+
+	// 1層目
+	layers.Add(neuralNetwork.NewAffine(28*28, 10

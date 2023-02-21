@@ -19,4 +19,9 @@ func main() {
 
 	// 2層目
 	layers.Add(neuralNetwork.NewAffine(1000, 1000))
-	layers.Add
+	layers.Add(neuralNetwork.NewRelu())
+
+	// 3層目
+	layers.Add(neuralNetwork.NewAffine(1000, 10))
+
+	// MNISTデータセットを格納するためのフォル

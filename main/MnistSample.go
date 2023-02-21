@@ -24,4 +24,9 @@ func main() {
 	// 3層目
 	layers.Add(neuralNetwork.NewAffine(1000, 10))
 
-	// MNISTデータセットを格納するためのフォル
+	// MNISTデータセットを格納するためのフォルダを作成
+	os.Mkdir("data", 0777)
+
+	// MNISTのデータセットを取得
+	train, test, err := mnist.LoadData("data")
+	if err != nil {

@@ -14,4 +14,9 @@ func main() {
 	layers := neuralNetwork.NewDefaultNeuralNetworkLayers()
 
 	// 1層目
-	layers.Add(neuralNetwork.NewAffine(28*28, 10
+	layers.Add(neuralNetwork.NewAffine(28*28, 1000))
+	layers.Add(neuralNetwork.NewRelu())
+
+	// 2層目
+	layers.Add(neuralNetwork.NewAffine(1000, 1000))
+	layers.Add

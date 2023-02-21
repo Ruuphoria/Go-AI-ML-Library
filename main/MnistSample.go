@@ -30,3 +30,9 @@ func main() {
 	// MNISTのデータセットを取得
 	train, test, err := mnist.LoadData("data")
 	if err != nil {
+		fmt.Printf("Can't get mnist train and test data! \n")
+		os.Exit(-1)
+	}
+
+	// 学習時の各種パラメーターの設定
+	batchSize := 10

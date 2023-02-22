@@ -39,4 +39,7 @@ func main() {
 	iterationCount := 1800
 	iteracionCountPerEpoch := int(train.Count() / batchSize)
 
-	// 学習時
+	// 学習時の様子をグラフに描画するための準備
+	graphCreater, err := graph.NewGraphCreater("output")
+	if err != nil {
+		panic

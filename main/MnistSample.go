@@ -35,4 +35,8 @@ func main() {
 	}
 
 	// 学習時の各種パラメーターの設定
-	batchSize := 10
+	batchSize := 100
+	iterationCount := 1800
+	iteracionCountPerEpoch := int(train.Count() / batchSize)
+
+	// 学習時

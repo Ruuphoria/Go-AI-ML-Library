@@ -51,4 +51,6 @@ func main() {
 	trainPoints := graph.NewGraphPoints("train")
 
 	// 学習の実行
-	f
+	for i := 0; i < iterationCount; i++ {
+		// 入力用のデータを取得
+		rawSet := mnist.ExtractRandomDataSet(train, batchSiz

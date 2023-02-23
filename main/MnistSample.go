@@ -46,4 +46,9 @@ func main() {
 	}
 	param := graph.NewGraphParameter()
 	param.Title = "MNIST_Test"
-	param.XLa
+	param.XLabel = "iteration"
+	param.YLabel = "accuracy"
+	trainPoints := graph.NewGraphPoints("train")
+
+	// 学習の実行
+	f

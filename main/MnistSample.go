@@ -42,4 +42,8 @@ func main() {
 	// 学習時の様子をグラフに描画するための準備
 	graphCreater, err := graph.NewGraphCreater("output")
 	if err != nil {
-		panic
+		panic("panic! graph can't be used!")
+	}
+	param := graph.NewGraphParameter()
+	param.Title = "MNIST_Test"
+	param.XLa

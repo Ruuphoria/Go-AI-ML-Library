@@ -57,4 +57,10 @@ func main() {
 		x, t := mnist.ConvertMatrixFromDataSet(rawSet)
 
 		// forward処理の実施
-		loss, acc := layers.Forwar
+		loss, acc := layers.Forward(x, t)
+
+		// backward処理の実施
+		layers.Backward()
+
+		// 1epoch事にloss,accuracyを出力
+		if (i % iteracionCountPerEpoc

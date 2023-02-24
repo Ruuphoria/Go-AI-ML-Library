@@ -53,4 +53,8 @@ func main() {
 	// 学習の実行
 	for i := 0; i < iterationCount; i++ {
 		// 入力用のデータを取得
-		rawSet := mnist.ExtractRandomDataSet(train, batchSiz
+		rawSet := mnist.ExtractRandomDataSet(train, batchSize)
+		x, t := mnist.ConvertMatrixFromDataSet(rawSet)
+
+		// forward処理の実施
+		loss, acc := layers.Forwar

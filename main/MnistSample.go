@@ -68,4 +68,11 @@ func main() {
 		}
 
 		// 勾配のupdate処理の実施
-	
+		layers.Update()
+
+		// グラフへ追加
+		trainPoints.AddPoint(graph.NewPoint(float64(i), acc))
+	}
+
+	/*
+		iter

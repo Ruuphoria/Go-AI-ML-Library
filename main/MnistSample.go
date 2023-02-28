@@ -75,4 +75,6 @@ func main() {
 	}
 
 	/*
-		iter
+		iteracionCountPerEpoch = int(test.Count() / batchSize)
+		iterationCount = 100
+		for i := 0; i < iterationCount; i+

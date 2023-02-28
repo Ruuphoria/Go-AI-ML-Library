@@ -63,4 +63,9 @@ func main() {
 		layers.Backward()
 
 		// 1epoch事にloss,accuracyを出力
-		if (i % iteracionCountPerEpoc
+		if (i % iteracionCountPerEpoch) == 0 {
+			fmt.Printf("train %d iteration : loss is %f, accuracy is %f\n", i, loss, acc)
+		}
+
+		// 勾配のupdate処理の実施
+	

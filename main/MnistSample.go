@@ -88,4 +88,6 @@ func main() {
 		}
 	*/
 	// 予測の実行
-	x, t := mnist.ConvertMatrixFro
+	x, t := mnist.ConvertMatrixFromDataSet(test)
+	loss, acc := layers.Forward(x, t)
+	fmt.Printf("test : loss is %f, accuracy is 

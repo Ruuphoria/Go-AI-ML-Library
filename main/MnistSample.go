@@ -79,4 +79,9 @@ func main() {
 		iterationCount = 100
 		for i := 0; i < iterationCount; i++ {
 			rawSet := mnist.ExtractRandomDataSet(test, batchSize)
-			x, t := mnist.ConvertMatrix
+			x, t := mnist.ConvertMatrixFromDataSet(rawSet)
+
+			// Forward処理の実施
+			loss, acc := layers.Forward(x, t)
+
+			fmt.Printf("test

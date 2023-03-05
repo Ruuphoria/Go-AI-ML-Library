@@ -84,4 +84,8 @@ func main() {
 			// Forward処理の実施
 			loss, acc := layers.Forward(x, t)
 
-			fmt.Printf("test
+			fmt.Printf("test %d iteration : loss is %f, accuracy is %f\n", i, loss, acc)
+		}
+	*/
+	// 予測の実行
+	x, t := mnist.ConvertMatrixFro

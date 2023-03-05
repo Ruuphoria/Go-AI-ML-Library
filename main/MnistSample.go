@@ -77,4 +77,6 @@ func main() {
 	/*
 		iteracionCountPerEpoch = int(test.Count() / batchSize)
 		iterationCount = 100
-		for i := 0; i < iterationCount; i+
+		for i := 0; i < iterationCount; i++ {
+			rawSet := mnist.ExtractRandomDataSet(test, batchSize)
+			x, t := mnist.ConvertMatrix

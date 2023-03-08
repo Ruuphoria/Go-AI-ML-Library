@@ -90,4 +90,9 @@ func main() {
 	// 予測の実行
 	x, t := mnist.ConvertMatrixFromDataSet(test)
 	loss, acc := layers.Forward(x, t)
-	fmt.Printf("test : loss is %f, accuracy is 
+	fmt.Printf("test : loss is %f, accuracy is %f\n", loss, acc)
+
+	// グラフの作成
+	graphCreater.SaveLineGraph(param, []graph.GraphPoints{trainPoints})
+
+	os.Ex

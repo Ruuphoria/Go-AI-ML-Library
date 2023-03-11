@@ -95,4 +95,5 @@ func main() {
 	// グラフの作成
 	graphCreater.SaveLineGraph(param, []graph.GraphPoints{trainPoints})
 
-	os.Ex
+	os.Exit(0)
+}

@@ -11,4 +11,9 @@ class TvmCompileParameter:
         self.output_folder = output_folder
         self.target = target
         self.opt_level = opt_level
-        se
+        self.data_dict = data_dict
+        self.shape_dict = shape_dict
+
+
+class TvmWrapper:
+    def __in

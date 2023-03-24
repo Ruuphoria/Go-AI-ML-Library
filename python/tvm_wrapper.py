@@ -16,4 +16,9 @@ class TvmCompileParameter:
 
 
 class TvmWrapper:
-    def __in
+    def __init__(self, param):
+        self.__param = param
+        self.__model = None
+
+        # フォルダが存在しない場合は作成する
+        os.makedi

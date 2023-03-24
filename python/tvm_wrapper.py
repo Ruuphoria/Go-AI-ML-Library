@@ -21,4 +21,5 @@ class TvmWrapper:
         self.__model = None
 
         # フォルダが存在しない場合は作成する
-        os.makedi
+        os.makedirs(self.__param.model_root_path, exist_ok=True)
+        os.makedirs(self.__param.output_folder,

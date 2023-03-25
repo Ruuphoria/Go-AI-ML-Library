@@ -34,4 +34,7 @@ class TvmWrapper:
     def compile(self):
         # モデルからsymbol, parameterを取得
         # TODO : Darknetの対応が必要
-        s
+        sym, params = nnvm.frontend.from_onnx(self.__model)
+
+        # symbol, parameterからビルドを実施
+        # TODO : Relayの

@@ -26,4 +26,7 @@ class TvmWrapper:
 
     def setup(self):
         loader = model_loader.ModelLoaderFactory.get_loader(
-            mode
+            model_folder=self.__param.model_root_path,
+            model_type=self.__param.model_type
+        )
+        self.__model =

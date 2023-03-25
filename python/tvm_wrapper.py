@@ -29,4 +29,9 @@ class TvmWrapper:
             model_folder=self.__param.model_root_path,
             model_type=self.__param.model_type
         )
-        self.__model =
+        self.__model = loader.load()
+
+    def compile(self):
+        # モデルからsymbol, parameterを取得
+        # TODO : Darknetの対応が必要
+        s

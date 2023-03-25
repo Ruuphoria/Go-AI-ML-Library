@@ -22,4 +22,8 @@ class TvmWrapper:
 
         # フォルダが存在しない場合は作成する
         os.makedirs(self.__param.model_root_path, exist_ok=True)
-        os.makedirs(self.__param.output_folder,
+        os.makedirs(self.__param.output_folder, exist_ok=True)
+
+    def setup(self):
+        loader = model_loader.ModelLoaderFactory.get_loader(
+            mode

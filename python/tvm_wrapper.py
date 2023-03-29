@@ -37,4 +37,7 @@ class TvmWrapper:
         sym, params = nnvm.frontend.from_onnx(self.__model)
 
         # symbol, parameterからビルドを実施
-        # TODO : Relayの
+        # TODO : Relayの対応
+        with nnvm.compiler.build_config(opt_level=self.__param.opt_level):
+            # build
+        

@@ -40,4 +40,6 @@ class TvmWrapper:
         # TODO : Relayの対応
         with nnvm.compiler.build_config(opt_level=self.__param.opt_level):
             # build
-        
+            graph, lib, params = nnvm.compiler.build(
+                graph=sym,
+                target=self._

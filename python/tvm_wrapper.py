@@ -45,4 +45,8 @@ class TvmWrapper:
                 target=self.__param.target,
                 shape=self.__param.shape_dict,
                 dtype=self.__param.data_dict,
- 
+                params=params
+            )
+
+            # TVM用のモデルデータをexport
+            self.__ex

@@ -49,4 +49,8 @@ class TvmWrapper:
             )
 
             # TVM用のモデルデータをexport
-            self.__ex
+            self.__export_model(graph, lib, params)
+
+    def __export_model(self, graph, lib, params):
+        # ライブラリをexport
+  

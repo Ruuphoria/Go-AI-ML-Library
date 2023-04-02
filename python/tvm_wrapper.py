@@ -42,4 +42,7 @@ class TvmWrapper:
             # build
             graph, lib, params = nnvm.compiler.build(
                 graph=sym,
-                target=self._
+                target=self.__param.target,
+                shape=self.__param.shape_dict,
+                dtype=self.__param.data_dict,
+ 

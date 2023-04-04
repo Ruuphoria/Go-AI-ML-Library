@@ -55,4 +55,7 @@ class TvmWrapper:
         # ライブラリをexport
         model_name = self.__param.model_type.value
         lib_name = model_name + ".so"
-        lib.expor
+        lib.export_library(os.path.join(self.__param.output_folder, lib_name))
+
+        # グラフ情報をファイルに書き出す
+    

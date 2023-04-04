@@ -53,4 +53,6 @@ class TvmWrapper:
 
     def __export_model(self, graph, lib, params):
         # ライブラリをexport
-  
+        model_name = self.__param.model_type.value
+        lib_name = model_name + ".so"
+        lib.expor

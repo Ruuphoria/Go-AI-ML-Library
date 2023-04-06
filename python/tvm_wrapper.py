@@ -60,4 +60,7 @@ class TvmWrapper:
         # グラフ情報をファイルに書き出す
         graph_name = model_name + ".json"
         graph_json = graph.json()
-        with open(os.path
+        with open(os.path.join(self.__param.output_folder, graph_name), "w") as f:
+            f.write(graph_json)
+
+       

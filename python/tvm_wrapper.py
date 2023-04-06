@@ -58,4 +58,6 @@ class TvmWrapper:
         lib.export_library(os.path.join(self.__param.output_folder, lib_name))
 
         # グラフ情報をファイルに書き出す
-    
+        graph_name = model_name + ".json"
+        graph_json = graph.json()
+        with open(os.path

@@ -63,4 +63,6 @@ class TvmWrapper:
         with open(os.path.join(self.__param.output_folder, graph_name), "w") as f:
             f.write(graph_json)
 
-       
+        # パラメーター情報をファイルに書き出す
+        param_name = model_name + ".params"
+        param_bytes = nnvm.compiler.save_param_dic

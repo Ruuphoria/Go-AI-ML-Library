@@ -65,4 +65,5 @@ class TvmWrapper:
 
         # パラメーター情報をファイルに書き出す
         param_name = model_name + ".params"
-        param_bytes = nnvm.compiler.save_param_dic
+        param_bytes = nnvm.compiler.save_param_dict(params)
+        with open(os.path.join(self.__param.output_folder, param_name)

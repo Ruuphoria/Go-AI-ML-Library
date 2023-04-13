@@ -74,4 +74,6 @@ if __name__ == "__main__":
     data_dict = {"reshape_attr_tensor430": "int64"}
     shape_dict = {"data": [1, 3, 224, 224]}
     model_root_path = "model"
-    o
+    output_folder = "output"
+    compile_param = TvmCompileParameter(
+        model_root_path=model_r

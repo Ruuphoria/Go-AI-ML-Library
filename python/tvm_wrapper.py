@@ -76,4 +76,7 @@ if __name__ == "__main__":
     model_root_path = "model"
     output_folder = "output"
     compile_param = TvmCompileParameter(
-        model_root_path=model_r
+        model_root_path=model_root_path,
+        model_type=model_loader.ModelType.ResNet50,
+        output_folder=output_folder,
+        sha

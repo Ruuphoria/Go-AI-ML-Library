@@ -79,4 +79,9 @@ if __name__ == "__main__":
         model_root_path=model_root_path,
         model_type=model_loader.ModelType.ResNet50,
         output_folder=output_folder,
-        sha
+        shape_dict=shape_dict,
+        data_dict=data_dict
+    )
+
+    wrapper = TvmWrapper(compile_param)
+    wra

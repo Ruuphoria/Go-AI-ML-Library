@@ -84,4 +84,5 @@ if __name__ == "__main__":
     )
 
     wrapper = TvmWrapper(compile_param)
-    wra
+    wrapper.setup()
+    wrapper.compile()

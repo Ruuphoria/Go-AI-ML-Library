@@ -2,4 +2,10 @@
 
 SOURCES=$(wildcard *.go)
 EXECUTABLE=$(patsubst %.go, %, $(SOURCES))
-LIB_PATH=${GOP
+LIB_PATH=${GOPATH}/src
+
+all: $(EXECUTABLE)
+	@golint
+
+%: %.o
+	@go tool link -linkmode external -extld "g++" -extldflags "-ldl" -o $

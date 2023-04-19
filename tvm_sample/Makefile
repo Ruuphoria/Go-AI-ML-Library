@@ -8,4 +8,10 @@ all: $(EXECUTABLE)
 	@golint
 
 %: %.o
-	@go tool link -linkmode external -extld "g++" -extldflags "-ldl" -o $
+	@go tool link -linkmode external -extld "g++" -extldflags "-ldl" -o $@ $<
+
+%.o: %.go
+	@go tool compile -pack -o $@ $<
+
+clean:
+	@rm -f $(EXECUTABLE) *.so *.o *.a

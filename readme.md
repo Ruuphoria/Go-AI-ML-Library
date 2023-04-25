@@ -37,4 +37,10 @@ $ go run ./main/MnistSample.go
 
 ### Optimizer
 
-* Stochastic Gradient D
+* Stochastic Gradient Descent (SGD)
+
+## Docker
+
+### Build Container
+
+* Create docker container and attach it

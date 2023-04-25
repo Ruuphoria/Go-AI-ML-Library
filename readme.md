@@ -29,4 +29,12 @@ $ go run ./main/MnistSample.go
 * Relu
 * Sigmoid
 * Tanh
-* Softma
+* SoftmaxWithCrossEntropy
+
+### Neural Network Cells
+
+* Affine
+
+### Optimizer
+
+* Stochastic Gradient D

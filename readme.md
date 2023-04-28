@@ -52,4 +52,6 @@ $ bash install/run_container.sh
 * Set up the environment inside docker container:
 
 ```bash
-$ 
+$ cd go/src/github.com/Go-AI-ML-Library
+$ bash install/setup_container.sh
+$ source ~/.bash_profi

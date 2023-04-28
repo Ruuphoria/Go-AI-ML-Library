@@ -44,3 +44,12 @@ $ go run ./main/MnistSample.go
 ### Build Container
 
 * Create docker container and attach it
+
+```bash
+$ bash install/run_container.sh
+```
+
+* Set up the environment inside docker container:
+
+```bash
+$ 

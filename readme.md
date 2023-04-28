@@ -54,4 +54,9 @@ $ bash install/run_container.sh
 ```bash
 $ cd go/src/github.com/Go-AI-ML-Library
 $ bash install/setup_container.sh
-$ source ~/.bash_profi
+$ source ~/.bash_profile
+```
+
+## Run Sample TVM code
+
+If you want to use the sample TVM code, you'll need to create a docker c

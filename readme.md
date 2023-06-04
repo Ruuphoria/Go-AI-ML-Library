@@ -59,4 +59,7 @@ $ source ~/.bash_profile
 
 ## Run Sample TVM code
 
-If you want to use the sample TVM code, you'll need to create a docker c
+If you want to use the sample TVM code, you'll need to create a docker container.
+All the following steps can be implemented inside docker container.
+
+### Navigate to AI

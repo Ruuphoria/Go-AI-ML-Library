@@ -62,4 +62,14 @@ $ source ~/.bash_profile
 If you want to use the sample TVM code, you'll need to create a docker container.
 All the following steps can be implemented inside docker container.
 
-### Navigate to AI
+### Navigate to AI-ML-Library root path
+
+```bash
+$ cd go/src/github.com/Go-AI-ML-Library
+```
+
+### Get onnx model
+
+```bash
+$ cd python
+$ p

@@ -72,4 +72,11 @@ $ cd go/src/github.com/Go-AI-ML-Library
 
 ```bash
 $ cd python
-$ p
+$ python3 tvm_wrapper.py
+$ cd ../
+```
+
+### Build sample code
+
+```bash
+$ export GOPATH=/home/development/go

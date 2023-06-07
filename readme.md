@@ -80,3 +80,11 @@ $ cd ../
 
 ```bash
 $ export GOPATH=/home/development/go
+$ bash build_tvm_sample.sh
+```
+
+### Run Inference
+
+```bash
+$ go run tvm_sample/GotvmSample
+```
